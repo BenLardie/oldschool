@@ -7,7 +7,7 @@ export default function FeaturedPost() {
     return (
         <div className="FeaturedPost">
             <Paper>
-                <Typography variant="headline" component="h3">
+                <Typography component="h3">
                     Cake
                 </Typography>
             <div className="authorName">
