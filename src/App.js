@@ -34,8 +34,14 @@ function App() {
     getData()
     setLoading(false)
   }, [])
- console.log(posts)
- console.log(dataReceived)
+
+  const changeFeaturedPost = (index) => {
+    let copyOfPosts = posts.slice();
+    copyOfPosts.splice(index, 1);
+    setFeaturedPostIndex(index)
+    setOtherPosts(copyOfPosts);
+  }
+
   return (
     <div className="App">
             <header className="App-header">          
@@ -48,7 +54,7 @@ function App() {
             <p>Spotify player here</p>
         </div>
         <div className="otherPosts">
-            <OtherPost otherPosts={otherPosts}/>
+            <OtherPost allPosts={posts} otherPosts={otherPosts} changeFeaturedPost={(index) => changeFeaturedPost(index)}/>
         </div>
         <div className="footer">
             <p>Footer here</p>

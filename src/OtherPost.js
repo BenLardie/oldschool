@@ -6,7 +6,13 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 
 const OtherPosts = (props) => {
-    console.log(props)
+    const handleClick = (targetPostObject) =>{
+        const allPosts = props.allPosts
+        const targetIndex = allPosts.findIndex((postObject) => {
+          return targetPostObject._id === postObject._id
+        })
+        props.changeFeaturedPost(targetIndex);
+      }
     return (
         <div className="OtherPosts">
         <ExpansionPanel>
@@ -15,7 +21,7 @@ const OtherPosts = (props) => {
           </ExpansionPanelSummary>
           {props.otherPosts.map((postObject, index) => {
           return (
-            <ExpansionPanelDetails key={`otherPost-${index}`}>
+            <ExpansionPanelDetails key={`otherPost-${index}`} onClick={(e) => {handleClick(postObject)}}>
               <Typography>
                 {postObject.title}
               </Typography>
