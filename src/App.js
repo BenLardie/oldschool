@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import FeaturedPost from './FeaturedPost'
+import OtherPost from './OtherPost';
 
 import * as CosmicFunctions from './cosmicFunctions';   
 
@@ -47,7 +48,7 @@ function App() {
             <p>Spotify player here</p>
         </div>
         <div className="otherPosts">
-            <p>Other posts here</p>
+            <OtherPost otherPosts={otherPosts}/>
         </div>
         <div className="footer">
             <p>Footer here</p>
