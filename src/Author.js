@@ -6,9 +6,9 @@ const Author = (props) => {
     console.log(props)
     return (
         <div className="Author">
-        <Avatar alt={props.authorName} src={props.avatarImageSrc} />
-      <p>by {props.authorName}</p>
-    </div>
+            <Avatar alt={props.authorName} src={props.avatarImageSrc} />
+            <p>by {props.authorName}</p>
+        </div>
     )
 }
 
