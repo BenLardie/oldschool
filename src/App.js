@@ -11,14 +11,15 @@ function App() {
   const [authors, setAuthors] = useState([])
   const [featuredPostIndex, setFeaturedPostIndex] = useState(0)
   const [otherPosts, setOtherPosts] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const getData = async  () =>{
     try {
       const {posts, authors} = await CosmicFunctions.getCosmicJsData();
-      setDataReceived(true)
       setPosts(posts)
       setAuthors(authors) 
       setOtherPosts(posts.slice(1))
+      setDataReceived(true)
     }
     catch(err) {
       console.error('Error: Problem retrieving Cosmic JS data');
@@ -30,15 +31,17 @@ function App() {
 
   useEffect(() => {
     getData()
+    setLoading(false)
   }, [])
-  console.log(posts)
+ console.log(posts)
+ console.log(dataReceived)
   return (
     <div className="App">
             <header className="App-header">          
                   Old School Shuffle
             </header>
         <div className="featuredPost">
-            <FeaturedPost />
+            { dataReceived ? <FeaturedPost post={posts[featuredPostIndex]} /> : ''} 
         </div>
         <div className="spotifyPlayer">
             <p>Spotify player here</p>
