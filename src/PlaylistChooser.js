@@ -81,7 +81,7 @@ const PlaylistChooser = (props) => {
           open={Boolean(state.anchorElement)}
           onClose={(e) => handlePlaylistMenuClose(e)}
         >
-          {state.playlists.map((playlistObj, index) => {return generateMenuItem(playlistObj, index)})}
+          {state.playlists ? state.playlists.map((playlistObj, index) => {return generateMenuItem(playlistObj, index)}) : null}
         </Menu>
         <div className='optionsSelection'>
         <FormControl component="fieldset" className='optionsSelection'>
