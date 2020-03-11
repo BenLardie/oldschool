@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Old School Shuffle
+        Ben's Spotify Blog
             </header>
       <div className="featuredPost">
         {dataReceived ? <FeaturedPost post={posts[featuredPostIndex]} /> : ''}
@@ -56,7 +56,7 @@ function App() {
         <OtherPost allPosts={posts} otherPosts={otherPosts} changeFeaturedPost={(index) => changeFeaturedPost(index)} />
       </div>
       <div className="footer">
-        <p>Footer here</p>
+        <p>Made by Ben Lardie</p>
       </div>
 
     </div>
